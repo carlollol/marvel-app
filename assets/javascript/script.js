@@ -2,15 +2,15 @@ $(document).ready(function() {
 
     // footer click functions to show search modals
     $("#findHero").on("click", function(){
-	$("#findHeroModal").modal(("show")({backdrop: true}));
+	$("#findHeroModal").modal({backdrop: true});
     });
 
     $("#beHero").on("click", function(){
-	$("#beHeroModal").modal(("show")({backdrop: true}));
+	$("#beHeroModal").modal({backdrop: true});
     });
 
     $("#adopt").on("click", function(){
-	$("#adoptModal").modal(("show")({backdrop: true}));
+	$("#adoptModal").modal({backdrop: true});
     });
 
     
