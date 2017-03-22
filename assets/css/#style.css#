@@ -1,0 +1,9 @@
+.modal {
+    display: none;
+    position: fixed:
+}
+
+#logoHeader {
+    width: 4em;
+}
+

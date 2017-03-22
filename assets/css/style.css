@@ -1,0 +1,46 @@
+.modal {
+    display: none;
+    position: fixed:
+}
+
+#logoHeader {
+    width: 4em;
+}
+
+#googleMap {
+        height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+
+html, body {
+        height: 100%;
+        width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+	background: #d2d2d2;
+    height: 60px;
+    text-align: center;
+}
+
+.gmap {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.container-fluid {
+	background-color: #232326;
+}
+
+.footer {
+	background-color: #232326;
+}
+
+.icons {
+	width: 110px;
+	height: 60px;
+	background: none;
+	border: none;
+}
