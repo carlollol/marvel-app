@@ -28,3 +28,10 @@ html, body {
 .footer {
 	background-color: #232326;
 }
+
+.icons {
+	width: 110px;
+	height: 60px;
+	background: none;
+	border: none;
+}
