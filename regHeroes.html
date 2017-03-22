@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registered Heroes</title>
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- style.css - Main CSS until changes made -->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+
+    <link rel="stylesheet" type="text/css" href="assets/css/regheroes.css">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
+    <!-- Title of the page, classes to be changed to fit layout of our theme. -->
+    <h1 class="jumbotron text-center">Registered Heroes</h1>
+    <!-- Have the div contain each hero, and when it's clicked have it display the hero information with a miniature map in their character page. -->
+    <div class="container">
+        <div class="starter-rh"></div>
+        <div class='panel-group' id='accordion'>
+        </div>
+        <div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Become a Hero</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nickname">Your Alias</label>
+                            <input class="form-control" id="alias" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="real_name">Your Name</label>
+                            <input class="form-control" id="realName" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="paragraph_description">Your Powers</label>
+                            <input class="form-control" id="powers" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="video/picture/gif">Caught Footage</label>
+                            <input class="form-control" id="footage" type="text">
+                        </div>
+                        <button class="btn btn-primary" id="submit_hero" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <script src="assets/javascript/regheroes.js"></script>
+
+</body>
+
+</html>
