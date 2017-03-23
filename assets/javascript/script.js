@@ -1,7 +1,7 @@
 $(document).ready(function() {
     initMap();
     //declare var
-    var mapProp, geocoder, infoWindow;	
+    var map, mapProp, geocoder, infoWindow;	
 
     // Initialize Firebase
     function initMap() {
@@ -99,7 +99,7 @@ $(document).ready(function() {
 		}
             ]
 	};
-	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
     }
 
     // footer click functions to show search modals
@@ -131,9 +131,9 @@ $(document).ready(function() {
 	// geocode zip code into latlng for google
 	function codeAddress() {
 	    geocoder = new google.maps.Geocoder();
-	    geocoder.geocode( { 'address': searchZip}, function(results, status) {
+	    geocoder.geocode({'postalCode': searchZip}, function(results, status) {
 		if (status == 'OK') {
-		    mapProp.setCenter(results[0].geometry.location);
+		    map.setCenter(results[0].geometry.location);
 		    
 		} else {
 		    console.log('Geocode was not successful for the following reason: ' + status);
@@ -143,11 +143,11 @@ $(document).ready(function() {
 
 	// search within 15mile radius of zip and return to map
 	infoWindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(mapProp);
+        var service = new google.maps.places.PlacesService(map);
 
 	
         var request = {
-            location: 'address',
+            location: 'postalCode',
             radius: 500,
             query: volSearch
         };
@@ -162,20 +162,20 @@ $(document).ready(function() {
 	    }
 	}
 	
-    function createMarker(place) {
-	var placeLoc = place.geometry.location;
-	var marker = new google.maps.Marker({
-	    map: mapProp,
-	    position: place.geometry.location
-	});
-	
-	google.maps.event.addListener(marker, 'click', function() {
-	    infoWindow.setContent(place.name);
-	    infoWindow.open(mapProp, this);
-	});
+	function createMarker(place) {
+	    var placeLoc = place.geometry.location;
+	    var marker = new google.maps.Marker({
+		map: map,
+		position: place.geometry.location
+	    });
+	    
+	    google.maps.event.addListener(marker, 'click', function() {
+		infoWindow.setContent(place.name);
+		infoWindow.open(map, this);
+	    });
     }
     });// close be hero seacrh function
-	
+    
     // adopt search function
     $("#adoptsearch").on("click", function() {
 	var animal = $("#animal").val().trim().encodeURI();
