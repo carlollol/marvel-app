@@ -6,7 +6,47 @@ $(document).ready(function() {
     addHeros();
     addVolOpp();
 
-    // Initialize Firebase
+    // footer click functions to show search modals
+    $("#findHero").on("click", function(){
+	$("#findHeroModal").modal({backdrop: true});
+    });
+    
+    $("#beHero").on("click", function(){
+	$("#beHeroModal").modal({backdrop: true});
+    });
+
+    $("#adopt").on("click", function(){
+	$("#adoptModal").modal({backdrop: true});
+    });
+
+    //search functions
+    // find a hero search function
+    $("#findHeroSearch").on("click", function() {
+	event.preventDefault();
+	id = $("#heroList").val();
+        address = heroes[id](location);
+	console.log(heroes[id](location));
+	herocode(geocoder, map);
+	$("#findHeroModal").modal("hide");
+    });
+
+    // be hero search function;
+    $("#beHeroSearch").on("click", function() {
+	search = $("#volunteerList").val();
+	locSearch = $("#heroZip").val().trim();
+	codeAddress(geocoder, map);
+	$("#beHeroModal").modal("hide");
+    });// close be hero seacrh function
+
+    // adopt search function
+    $("#adoptSearch").on("click", function() {
+	search = "animal shelter";
+	locSearch = $("#adoptZip").val().trim();
+	codeAddress(geocoder, map);
+	$("#adoptModal").modal("hide");
+    });
+
+     // Initialize Firebase
     function initMap() {
 	mapProp= {
 	    center: new google.maps.LatLng(51.508742, -0.120850),
@@ -105,19 +145,6 @@ $(document).ready(function() {
 	map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
     } // close initMap
 
-    // footer click functions to show search modals
-    $("#findHero").on("click", function(){
-	$("#findHeroModal").modal({backdrop: true});
-    });
-    
-    $("#beHero").on("click", function(){
-	$("#beHeroModal").modal({backdrop: true});
-    });
-
-    $("#adopt").on("click", function(){
-	$("#adoptModal").modal({backdrop: true});
-    });
-
     // dynamically add list of reg heros to find a hero dropdown
     function addHeros(){
 	for (var i = 0; i < heroes.length; i++) {
@@ -138,31 +165,6 @@ $(document).ready(function() {
 	}
     };
     
-    //search functions
-    // find a hero search function
-    $("#findHeroSearch").on("click", function() {
-	id = $("#heroList").val();
-        address = heroes[id].location;
-	console.log(heroes[id].location);
-	herocode(geocoder, resultsMap);
-	
-    });
-
-    // be hero search function;
-    $("#beHeroSearch").on("click", function() {
-	search = $("#volunteerList").val();
-	locSearch = $("#heroZip").val().trim();
-	codeAddress(geocoder, map);
-	$("#beHeroModal").modal("hide");
-    });// close be hero seacrh function
-
-    // adopt search function
-    $("#adoptSearch").on("click", function() {
-	search = "animal shelter";
-	locSearch = $("#adoptZip").val().trim();
-	codeAddress(geocoder, map);
-	$("#adoptModal").modal("hide");
-    });
     
     // geocode zip code into latlng for google
     function codeAddress(geocoder, resultsMap) {
