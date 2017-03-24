@@ -1,46 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title></title>
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-    <!-- Latest compiled and minified CSS -->
+    <meta charset="UTF-8">
+    <title>Herolution</title>
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- veiwport info for media query -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- boostrap jquery link -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="assets/javascript/script.js">
-    </script>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    </div>
-    <!-- navbar-header -->
-    <!-- collect nav links to toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="indexBio.html" title="registered heros">Registered Heros<span class="sr-only">(current)</span></a></li>
-            <li class="active"><a href="about.html" title="about us">About Us</li>
-            <li><a href="index.html" title="homepage">Home</a></li>
-    </ul>
-      </div><!-- navbar-collapse -->      
-  </div> <!-- close nav container -->
-
-
-    <div class="site_container">
-        <h1> S.W.O.R.D </h1>
-        
-        <nav>
-            <ul class="topnav">
-                <li><img src="assets/images/carloBio.jpeg" height="100px" width="100px" class="bio_link" href="#Carlo">Carlo Anacta</li>
-                <li><img src="assets/images/phBio.jpeg" height="100px" width="100px" class="bio_link" href="#Brandon">Brandon Chang</li>
-                <li><img src="assets/images/jackieBio.jpg" height="100px" width="100px" class="bio_link" href="#Jackie">Jackie Wellons</li>
-                <li><img src="assets/images/wyattBio.jpg" height="100px" width="100px" class="bio_link" href="#Wyatt">Wyatt Thomson</li>
-                </li>
-            </ul>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <!-- collapsing menu -->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1 id="name" class="navbar-brand"><img src="assets/media/logo.png" id="logoHeader" alt="logo"></h1>
+            </div>
+            <!-- navbar-header -->
+            <!-- collect nav links to toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html" title="homepage">Home<span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a href="regHeroes.html" title="registered heros">Registered Heroes</a></li>
+                    <li class="active"><a href="indexBio.html" title="about us">About Us</a></li>
+                </ul>
+            </div>
+            <!-- navbar-collapse -->
+        </div>
+        <!-- close nav container -->
         </nav>
-        <div class="site_bio">
-            <h2> Description </h2>
-            <p>
-            </p>
+        <div class="site_container">
+        <br><br><br><br><br>
+            <h1> S.W.O.R.D </h1>
+            
+            <h2> Sentient World Observation and Response Department </h2>
+            <nav>
+                <ul class="topnav">
+                    <li><img src="assets/images/carloBio.jpg" height="100px" width="100px" class="bio_link" href="#Carlo">Carlo Anacta - Other-Worldly Relations Manager </li>
+                    <li><img src="assets/images/brandon.jpg" height="100px" width="100px" class="bio_link" href="#Brandon">Brandon Chang - Super-visor</li>                 
+                    <li><img src="assets/images/jackieBio.jpg" height="100px" width="100px" class="bio_link" href="#Jackie">Jackie Wellons - Head of HR (Hero Relations) </li>
+                      
+                    <!-- <p>I have a BFA from Penn State in Theatre Technology, and I'm currently enrolled  6 month Fullstack Web Develpoment program at UCLA.  I am looking for work as a Web Developer or Sofware Developer.  I love making games, and enjoy learning new computer languages to expand my skills. </p>-->
+                    <li><img src="assets/images/wyattBio.jpg" height="100px" width="100px" class="bio_link" href="#Wyatt">Wyatt Thomson - Scribe </li> 
+                      
+                  <!--  <p>  I am a former collegiate athlete with a degree in Religious Studies from the University of California Santa Barbara.  Currently enrolled in the UCLA I hope to build on my current experience as a Technical Recruiter, opening up new doors and career possibilites! </p> -->
+                     
+                </ul>
+            </nav>
+            <div class="site_bio">
+                <h2> WHAT WE DO </h2>
+                <p>
+                    Herolution was born out of a love for everything Marvel and the idea to be able to find our favorite superheros. Placing superheros in the human element is obviously fun: getting to see and search for them but there's nothing more powerful than extending yourself and becoming a hero through volunteer work. With Herolution, we felt that there was plenty of room for our users to brush up on their Marvel knowledge but what we're doing is creating emotional connections- inspiring the user to be an active hero in their own community.
+                    <br>
+                    <br> The app is built around three primary functions: finding a hero, being a hero and finding a sidekick. Each of these elements allows for our user to engage with the platform in different ways.
+                    <br>
+                    <br> These functionalities allow you to search for your favorite superhero, adopt a sidekick (like a new puppy!) or find your inner hero and volunteer within your community. Each of these enables you to become your own definition of a hero.
+                    <br>
+                    <br> “With great power, comes great responsibility.” – Spiderman
+                </p>
+            </div>
+        </div>
+    
 </body>
 
 </html>
