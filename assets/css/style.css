@@ -4,19 +4,41 @@
 }
 
 #logoHeader {
-    width: 4em;
+    width: 40px;
+    height: 40px;
+
 }
 
 #googleMap {
-        height: 100%;
+    width:100%; 
+    height:800px;
 }
 /* Optional: Makes the sample page fill the window. */
 
 html, body {
-        height: 100%;
-        width: 100%;
+    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
+}
+
+.navbar-brand {
+    padding-top: 5px;
+}
+
+.navbar-default .navbar-nav>.active>a {
+    color: #fff;
+    background: #232326;
+}
+
+.navbar-default .navbar-nav>.active>a:focus {
+    
+}
+
+.navbar-default .navbar-nav>.active>a:hover {
+    color: #c9323b;
+    background: #232326;
+
 }
 
 .footer {
@@ -39,8 +61,59 @@ html, body {
 }
 
 .icons {
-	width: 110px;
+	width: 50px;
 	height: 60px;
 	background: none;
 	border: none;
+    margin-right:30px;
+}
+
+#fHero {
+    background:url('../images/icon_01.png') no-repeat;
+    background-size: contain;
+    width:40px; 
+    height:40px;
+}
+
+#bHero {
+    background:url('../images/icon_02.png') no-repeat;
+    background-size: contain;
+    width:40px; 
+    height:40px;
+}
+
+#sKick {
+    background:url('../images/icon_03.png') no-repeat;
+    background-size: contain;
+    width:40px; 
+    height:40px;
+}
+
+#fHero:hover {
+    background: url('../images/icon_01_on.png') no-repeat;
+    background-size: contain;
+    width:40px; 
+    height:40px;
+}
+
+#bHero:hover {
+    background: url('../images/icon_02_on.png') no-repeat;
+    background-size: contain;
+    width:40px; 
+    height:40px;
+}
+
+#sKick:hover {
+    background: url('../images/icon_03_on.png') no-repeat;
+    background-size: contain;
+    width:40px; 
+    height:40px;
+}
+
+@media (min-width: 768px){
+
+.container {
+    width: 100%;
+}
+
 }

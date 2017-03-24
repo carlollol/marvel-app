@@ -181,6 +181,8 @@ $(document).ready(function() {
 	var animal = $("#animal").val().trim().encodeURI();
 	    var adoptZip = $("#adoptZip").val().trim().encodeURI();
     });
+
+    
     
 }); // close ready function
     
