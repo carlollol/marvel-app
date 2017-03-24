@@ -190,9 +190,20 @@ $(document).ready(function() {
 		console.log('Geocode was not successful for the following reason: ' + status);
 	    }
 	    
+	    google.maps.event.addListener(marker, 'click', function() {
+		infoWindow.setContent(place.name);
+		infoWindow.open(map, this);
+	    });
+    });
+    };// close be hero seacrh function
+    
+    // adopt search function
+    $("#adoptsearch").on("click", function() {
+	var animal = $("#animal").val().trim().encodeURI();
+	    var adoptZip = $("#adoptZip").val().trim().encodeURI();
+    });
 
-	});
-    }; //close geocode function
+ //close geocode function
     
     
 }); //close ready function
