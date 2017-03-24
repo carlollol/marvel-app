@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //declare var
-    var map, mapProp, geocoder, infoWindow, search, locSearch, service, address, id, volChoice;
+    var map, mapProp, geocoder, infoWindow, search, locSearch, service, address, hero, volChoice;
     var volList = ["Volunteer", "Soup Kitchen", "Animal Shelter"];
     initMap();
     addHeros();
@@ -23,9 +23,8 @@ $(document).ready(function() {
     // find a hero search function
     $("#findHeroSearch").on("click", function() {
 	event.preventDefault();
-	id = $("#heroList").val();
-        address = heroes[id](location);
-	console.log(heroes[id](location));
+	address = $("#heroList").val();
+	console.log(address);
 	herocode(geocoder, map);
 	$("#findHeroModal").modal("hide");
     });
@@ -149,7 +148,7 @@ $(document).ready(function() {
     function addHeros(){
 	for (var i = 0; i < heroes.length; i++) {
 	    var newHero = $("<option class='hero'>");
-	    newHero.attr("value", heroes[i].alias);
+	    newHero.attr("value", heroes[i].location);
 	    newHero.text(heroes[i].alias);
 	    $("#heroList").append(newHero);
 	}
@@ -222,13 +221,6 @@ $(document).ready(function() {
 	    });
     });
     };// close be hero seacrh function
-    
-    // adopt search function
-    $("#adoptsearch").on("click", function() {
-	var animal = $("#animal").val().trim().encodeURI();
-	    var adoptZip = $("#adoptZip").val().trim().
-	});
-    }; //close geocode function
 
     // find a hero search function   
     function herocode(geocoder, resultsMap) {

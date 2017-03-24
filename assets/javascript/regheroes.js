@@ -1,3 +1,4 @@
+var database = firebase.database();
 var heroes = [{
     alias: "Iron Man",
     name: "Anthony Edward 'Tony' Stark",
@@ -77,17 +78,8 @@ for (var i = 0; i < heroes.length; i++) {
 
 } // closes for loop for heroes
 
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyAXUwZuSaugpVDjGxX2_1z0GkYAZTd4JO0",
-    authDomain: "herobase-b5dcf.firebaseapp.com",
-    databaseURL: "https://herobase-b5dcf.firebaseio.com",
-    storageBucket: "herobase-b5dcf.appspot.com",
-    messagingSenderId: "580760766893"
-};
-firebase.initializeApp(config);
 
-var database = firebase.database();
+
 
 $("#submit_hero").on("click", function(event) {
     event.preventDefault();
