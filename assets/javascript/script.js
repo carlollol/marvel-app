@@ -1,9 +1,52 @@
 $(document).ready(function() {
-    initMap();
     //declare var
-    var map, mapProp, geocoder, infoWindow, search, locSearch, service;	
+    var map, mapProp, geocoder, infoWindow, search, locSearch, service, address, id, volChoice;
+    var volList = ["Volunteer", "Soup Kitchen", "Animal Shelter"];
+    initMap();
+    addHeros();
+    addVolOpp();
 
-    // Initialize Firebase
+    // footer click functions to show search modals
+    $("#findHero").on("click", function(){
+	$("#findHeroModal").modal({backdrop: true});
+    });
+    
+    $("#beHero").on("click", function(){
+	$("#beHeroModal").modal({backdrop: true});
+    });
+
+    $("#adopt").on("click", function(){
+	$("#adoptModal").modal({backdrop: true});
+    });
+
+    //search functions
+    // find a hero search function
+    $("#findHeroSearch").on("click", function() {
+	event.preventDefault();
+	id = $("#heroList").val();
+        address = heroes[id](location);
+	console.log(heroes[id](location));
+	herocode(geocoder, map);
+	$("#findHeroModal").modal("hide");
+    });
+
+    // be hero search function;
+    $("#beHeroSearch").on("click", function() {
+	search = $("#volunteerList").val();
+	locSearch = $("#heroZip").val().trim();
+	codeAddress(geocoder, map);
+	$("#beHeroModal").modal("hide");
+    });// close be hero seacrh function
+
+    // adopt search function
+    $("#adoptSearch").on("click", function() {
+	search = "animal shelter";
+	locSearch = $("#adoptZip").val().trim();
+	codeAddress(geocoder, map);
+	$("#adoptModal").modal("hide");
+    });
+
+     // Initialize Firebase
     function initMap() {
 	mapProp= {
 	    center: new google.maps.LatLng(51.508742, -0.120850),
@@ -100,50 +143,34 @@ $(document).ready(function() {
             ]
 	};
 	map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-    }
+    } // close initMap
 
-    // footer click functions to show search modals
-    $("#findHero").on("click", function(){
-	$("#findHeroModal").modal({backdrop: true});
-    });
+    // dynamically add list of reg heros to find a hero dropdown
+    function addHeros(){
+	for (var i = 0; i < heroes.length; i++) {
+	    var newHero = $("<option class='hero'>");
+	    newHero.attr("value", heroes[i].alias);
+	    newHero.text(heroes[i].alias);
+	    $("#heroList").append(newHero);
+	}
+    };
+
+    // add vonlunteer list
+    function addVolOpp() {
+	for (var i = 0; i < volList.length; i++) {
+	    var volOpp = $("<option class='volunteer'>");
+	    volOpp.attr("value", volList[i]);
+	    volOpp.text(volList[i]);
+	    $("#volunteerList").append(volOpp);
+	}
+    };
     
-    $("#beHero").on("click", function(){
-	$("#beHeroModal").modal({backdrop: true});
-    });
-
-    $("#adopt").on("click", function(){
-	$("#adoptModal").modal({backdrop: true});
-    });
-
-    
-    //search functions
-    // find a hero search function
-    $("#findHeroSearch").on("click", function() {
-	var hero = $("#searchName").val().trim();
-	
-    });
-
-    // be hero search function
-    $("#beHeroSearch").on("click", function() { 
-	codeAddress(geocoder, map);
-	$("#beHeroModal").modal("hide");
-    });// close be hero seacrh function
-
-    // adopt search function
-    $("#adoptSearch").on("click", function() {
-	codeAddress(geocoder, map);
-	$("#adoptModal").modal("hide");
-    });
     
     // geocode zip code into latlng for google
     function codeAddress(geocoder, resultsMap) {
-	search = $(".typeSearch").val().trim();
-	locSearch = $(".areaSearch").val().trim();
 	geocoder = new google.maps.Geocoder();
 	geocoder.geocode({'address': locSearch}, function(results, status) {
 	    var locService = results[0].geometry.location;
-	    
-	    console.log(results[0].geometry.location.lat());
 	    var locationObj = {
 		lat: locService.lat(),
 		lng: locService.lng()
@@ -156,7 +183,6 @@ $(document).ready(function() {
 		    radius: 500,
 		    query: search
 		};
-		console.log(request.location);
 
 		service = new google.maps.places.PlacesService(map);
 		service.textSearch(request, callback);
@@ -200,11 +226,27 @@ $(document).ready(function() {
     // adopt search function
     $("#adoptsearch").on("click", function() {
 	var animal = $("#animal").val().trim().encodeURI();
-	    var adoptZip = $("#adoptZip").val().trim().encodeURI();
-    });
+	    var adoptZip = $("#adoptZip").val().trim().
+	});
+    }; //close geocode function
 
- //close geocode function
+    // find a hero search function   
+    function herocode(geocoder, resultsMap) {
+	geocoder = new google.maps.Geocoder();
+	geocoder.geocode({'address': address}, function(results, status) {
+	    if (status === 'OK') {
+		map.setCenter(results[0].geometry.location);
+		var marker = new google.maps.Marker({
+		    map: map,
+		    position: results[0].geometry.location
+		});
+	    } else {
+		alert('Geocode was not successful for the following reason: ' + status);
+	    }
+	});
+    }
+
     
-    
+		  
 }); //close ready function
 

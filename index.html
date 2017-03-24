@@ -1,4 +1,4 @@
-<h3></h3><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
 	<meta charset="UTF-8">
@@ -44,6 +44,7 @@
 	</div> <!-- close nav container -->
 	</nav>
 	<div class ="container">
+	    
 	    <!-- find a hero modal -->
 	    <div class="modal fade" id="findHeroModal">
 		<div class="modal-dialog" role="document">
@@ -52,13 +53,14 @@
 			    <h5 class="modal-title">Find a Hero</h5>
 			</div>
 			<div class="modal-body">
+			    <select id="heroList" name="simple">
+			    </select>
 			    <form class="name">
-				<input type="text" class="search-query" id ="searchName" name="hero" placeholder="Search...">
-				<input type="submit" value="Search" id="findHerosearch">
+				<input type="submit" value="Search" id="findHeroSearch">
 			    </form>
 			</div>
 			<div class="modal-footer">
-			    <p>Search for where your favorite Marvel hero lives, use their hero name or real name.</p>
+			    <p>Search for where your favorite registered Marvel hero lives, choose their name from the dropdown menu.</p>
 			</div> <!-- close modal footer -->
 		    </div> <!-- close content -->
 		</div> <!-- close dialog -->
@@ -72,13 +74,14 @@
 			    <h5 class="modal-title">Be a Hero</h5>
 			</div>
 			<div class="modal-body">
-			    <input type="text" class="search-query typeSearch" placeholder="Search...">
+			    <select id="volunteerList" name="simple">
+			    </select>
 			    <input id ="heroZip" type="text" placeholder="Address" name="zip" class="form=control areaSearch">
 			    <input type="submit" value="Search" id="beHeroSearch">
 			    </form>
 			</div>
 			<div class="modal-footer">
-			    <p>Find local places to you can be a hero and volunteer at.  Use your passion to contribute to your community, if you love animals volunteer at an animal shelter.</p>
+			    <p>Find local places to you can be a hero and volunteer at, choose any option from the dropdown menu and add your address or zipcode to find local places.  Use your passion to contribute to your community, if you love animals volunteer at a local animal shelter.</p>
 			</div>
 		    </div>
 		</div>
@@ -92,12 +95,11 @@
 			    <h5 class="modal-title">Adopt a Sidekick</h5>
 			</div>
 			<div class="modal-body">
-			    <input type="text" class="search-query typeSearch" id ="animal" placeholder="Search...">
 			    <input id="adoptZip" type="text" placeholder="Address" name="zip" class="form=control areaSearch">
 			    <input type="submit" value="Search" id="adoptSearch">
 			</div>
 			<div class="modal-footer">
-			    <p>Adopt a sidekick from a local shelter, and give a loving animal a forever home.</p>
+			    <p>Adopt a sidekick from a local shelter, and give a loving animal a forever home. Just put in your address or zipcode and find a local animal shelter</p>
 			</div>
 		    </div>
 		</div>
@@ -127,6 +129,20 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCa49xtbdvX0TCjJZPn9jcAaJU8cujYhlc&libraries=places" async defer></script>
 
 	<!-- link to javscript -->
+	
+	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+	<script>
+	 // Initialize Firebase
+	 var config = {
+	     apiKey: "AIzaSyARYVDl9VKLSUX8IbTM9hwD7eN5QugXyA0",
+	     authDomain: "herolution-91427.firebaseapp.com",
+	     databaseURL: "https://herolution-91427.firebaseio.com",
+	     storageBucket: "herolution-91427.appspot.com",
+	     messagingSenderId: "203844750227"
+	 };
+	 firebase.initializeApp(config);
+	</script>
+	<script src="assets/javascript/regheroes.js" type="text/javascript"></script>
 	<script src="assets/javascript/script.js" type="text/javascript"></script>
     </body>
 </html>
