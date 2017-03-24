@@ -1,4 +1,4 @@
-<h3></h3><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
 	<meta charset="UTF-8">
@@ -44,6 +44,7 @@
 	</div> <!-- close nav container -->
 	</nav>
 	<div class ="container">
+	    
 	    <!-- find a hero modal -->
 	    <div class="modal fade" id="findHeroModal">
 		<div class="modal-dialog" role="document">
@@ -52,9 +53,10 @@
 			    <h5 class="modal-title">Find a Hero</h5>
 			</div>
 			<div class="modal-body">
+			    <select id="heroList" name="simple">
+			    </select>
 			    <form class="name">
-				<input type="text" class="search-query" id ="searchName" name="hero" placeholder="Search...">
-				<input type="submit" value="Search" id="findHerosearch">
+				<input type="submit" value="Search" id="findHeroSearch">
 			    </form>
 			</div>
 			<div class="modal-footer">
@@ -72,7 +74,8 @@
 			    <h5 class="modal-title">Be a Hero</h5>
 			</div>
 			<div class="modal-body">
-			    <input type="text" class="search-query typeSearch" placeholder="Search...">
+			    <select id="volunteerList" name="simple">
+			    </select>
 			    <input id ="heroZip" type="text" placeholder="Address" name="zip" class="form=control areaSearch">
 			    <input type="submit" value="Search" id="beHeroSearch">
 			    </form>
@@ -92,7 +95,6 @@
 			    <h5 class="modal-title">Adopt a Sidekick</h5>
 			</div>
 			<div class="modal-body">
-			    <input type="text" class="search-query typeSearch" id ="animal" placeholder="Search...">
 			    <input id="adoptZip" type="text" placeholder="Address" name="zip" class="form=control areaSearch">
 			    <input type="submit" value="Search" id="adoptSearch">
 			</div>
@@ -127,6 +129,20 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCa49xtbdvX0TCjJZPn9jcAaJU8cujYhlc&libraries=places" async defer></script>
 
 	<!-- link to javscript -->
+	
+	<script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+	<script>
+	 // Initialize Firebase
+	 var config = {
+	     apiKey: "AIzaSyARYVDl9VKLSUX8IbTM9hwD7eN5QugXyA0",
+	     authDomain: "herolution-91427.firebaseapp.com",
+	     databaseURL: "https://herolution-91427.firebaseio.com",
+	     storageBucket: "herolution-91427.appspot.com",
+	     messagingSenderId: "203844750227"
+	 };
+	 firebase.initializeApp(config);
+	</script>
+	<script src="assets/javascript/regheroes.js" type="text/javascript"></script>
 	<script src="assets/javascript/script.js" type="text/javascript"></script>
     </body>
 </html>
