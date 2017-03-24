@@ -21,7 +21,11 @@
     <h1 class="jumbotron text-center">Registered Heroes</h1>
     <!-- Have the div contain each hero, and when it's clicked have it display the hero information with a miniature map in their character page. -->
     <div class="container">
-        <div class="starter-rh"></div>
+        <div id="starter-rh"></div>
+            <div id="floating-panel">
+              <input id="address" type="textbox" placeholder="Input Location Here">
+              <input id="submit" type="button" value="Search">
+            </div>
         <div class='panel-group' id='accordion'>
         </div>
         <div>
@@ -44,6 +48,10 @@
                             <input class="form-control" id="powers" type="text">
                         </div>
                         <div class="form-group">
+                            <label for="paragraph_description">Your Location</label>
+                            <input class="form-control" id="yourlocation" type="text">
+                        </div>
+                        <div class="form-group">
                             <label for="video/picture/gif">Caught Footage</label>
                             <input class="form-control" id="footage" type="text">
                         </div>
@@ -51,8 +59,11 @@
                     </form>
                 </div>
             </div>
-            <script src="assets/javascript/regheroes.js"></script>
 
+            <script src="assets/javascript/regheroes.js"></script>
+          <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0WfD7ctP__ppnoohyb9ITJUL2-4KIyik&callback=initMap">
+    </script>
 </body>
 
 </html>
