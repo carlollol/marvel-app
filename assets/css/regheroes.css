@@ -1,6 +1,11 @@
-bgvid {
+.bgvid {
     margin-left: auto;
     margin-right: auto;
     display: block;
     float: left;
+}
+
+#starter-rh {
+	height: 400px;
+	width: 100%;
 }
