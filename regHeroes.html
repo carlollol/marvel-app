@@ -18,14 +18,37 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.7.1/firebase.js"></script>
     <!-- Title of the page, classes to be changed to fit layout of our theme. -->
-    <h1 class="jumbotron text-center">Registered Heroes</h1>
+
+<!--     <h1 class="jumbotron text-center">Registered Heroes</h1> -->
     <!-- Have the div contain each hero, and when it's clicked have it display the hero information with a miniature map in their character page. -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <!-- collapsing menu -->
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand"><img src="assets/images/logo_small.png" id="logoHeader" alt="logo"></a>
+        </div> <!-- navbar-header -->
+
+        <!-- collect nav links to toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="index.html" title="homepage">Home<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="regHeroes.html" title="registered heros">Registered Heroes</a></li>
+            <li class="active"><a href="indexBio.html" title="about us">About Us</a></li>
+            
+        </ul>
+        </div><!-- navbar-collapse -->      
+    </div> <!-- close nav container -->
+    </nav>
+
     <div class="container">
         <div id="starter-rh"></div>
-            <div id="floating-panel">
-              <input id="address" type="textbox" placeholder="Input Location Here">
-              <input id="submit" type="button" value="Search">
-            </div>
         <div class='panel-group' id='accordion'>
         </div>
         <div>
@@ -61,9 +84,6 @@
             </div>
 
             <script src="assets/javascript/regheroes.js"></script>
-          <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0WfD7ctP__ppnoohyb9ITJUL2-4KIyik&callback=initMap">
-    </script>
 </body>
 
 </html>
