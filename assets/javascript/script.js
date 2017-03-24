@@ -1,13 +1,13 @@
 $(document).ready(function() {
     initMap();
     //declare var
-    var map, mapProp, geocoder, infoWindow, volSearch, searchZip, service;	
+    var map, mapProp, geocoder, infoWindow, search, locSearch, service;	
 
     // Initialize Firebase
     function initMap() {
 	mapProp= {
-	    center: new google.maps.LatLng(51.508742,-0.120850),
-	    zoom:5,
+	    center: new google.maps.LatLng(51.508742, -0.120850),
+	    zoom: 5,
 	    styles: [
 		{elementType: 'geometry', stylers: [{color: '#242f3e'}]},
 		{elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -125,21 +125,36 @@ $(document).ready(function() {
 
     // be hero search function
     $("#beHeroSearch").on("click", function() { 
-	codeAddress(geocoder, mapcc  );
+	codeAddress(geocoder, map);
+	$("#beHeroModal").modal("hide");
     });// close be hero seacrh function
+
+    // adopt search function
+    $("#adoptSearch").on("click", function() {
+	codeAddress(geocoder, map);
+	$("#adoptModal").modal("hide");
+    });
+    
     // geocode zip code into latlng for google
     function codeAddress(geocoder, resultsMap) {
-	volSearch = $("#volType").val().trim();
-	searchZip = $("#heroZip").val().trim();
+	search = $(".typeSearch").val().trim();
+	locSearch = $(".areaSearch").val().trim();
 	geocoder = new google.maps.Geocoder();
-	geocoder.geocode({address: searchZip}, function(results, status) {
+	geocoder.geocode({'address': locSearch}, function(results, status) {
+	    var locService = results[0].geometry.location;
+	    
+	    console.log(results[0].geometry.location.lat());
+	    var locationObj = {
+		lat: locService.lat(),
+		lng: locService.lng()
+	    };
 	    if (status == google.maps.GeocoderStatus.OK) {
 		map.setCenter(results[0].geometry.location);
 		// search within radius of zip and return to map
 		var request = {
-		    location: 'address',
+		    location: locationObj,
 		    radius: 500,
-		    query: volSearch
+		    query: search
 		};
 		console.log(request.location);
 
@@ -159,7 +174,8 @@ $(document).ready(function() {
 		    var placeLoc = place.geometry.location;
 		    var marker = new google.maps.Marker({
 			map: map,
-			position: place.geometry.location
+			position: place.geometry.location,
+			zoom: 15
 		    });
 		    
 		    infoWindow = new google.maps.InfoWindow();
@@ -168,7 +184,7 @@ $(document).ready(function() {
 			infoWindow.open(map, this);
 		    });
 		}
-		$("#beHeroModal").modal("hide");
+		
 		
 	    } else {
 		console.log('Geocode was not successful for the following reason: ' + status);
@@ -176,15 +192,8 @@ $(document).ready(function() {
 	    
 
 	});
-    };
+    }; //close geocode function
     
-
-    
-    // adopt search function
-    $("#adoptsearch").on("click", function() {
-	var animal = $("#animal").val().trim().encodeURI();
-	var adoptZip = $("#adoptZip").val().trim().encodeURI();
-    });
     
 }); //close ready function
 
