@@ -25,7 +25,6 @@ $(document).ready(function() {
     $("#findHeroSearch").on("click", function() {
 	event.preventDefault();
 	address = $("#heroList").val();
-	console.log(address);
 	herocode(geocoder, map);
 	$("#findHeroModal").modal("hide");
     });
@@ -35,9 +34,28 @@ $(document).ready(function() {
 	search = $("#volunteerList").val();
 	locSearch = $("#heroZip").val().trim();
 	codeAddress(geocoder, map);
-	$("#beHeroModal").modal("hide");
+	var key = "b68b14ba88588086d84e52175df4e6b5"
+        var query;
+        query = $("#heroZip").val().trim();
+	console.log(query)
+        $.ajax({
+	    url: "http://www.volunteermatch.org/api/call?action=searchOpportunities&key=" + key + 
+                "&query=%7B%22location%22:%22"+query+"%22%7D",
+	    method: "GET",
+	    dataType: "JSONP",
+	    data: {
+		action: "searchOrganizations"
+	    }
+        }).done(function(response) {
+	    console.log(response.resultsSize)
+            $("#volunteerMatchAPI").html(response.resultsSize)
+	    // $("#test").append(test9)
+        });
+	setTimeout(function() {
+ 	    $("#beHeroModal").modal("hide"); 
+ 	}, 2000);
     });// close be hero seacrh function
-
+    
     // adopt search function
     $("#adoptSearch").on("click", function() {
 	search = "animal shelter";
@@ -237,24 +255,3 @@ function createMarker(place) {
     
 		  
 }); //close ready function
-
-
-         $('#beHeroSearch').click(function() {  
-         	           var key = "b68b14ba88588086d84e52175df4e6b5"
-           var query;
-           query = $("#heroZip").val().trim();
-console.log(query)
-           $.ajax({
-             url: "http://www.volunteermatch.org/api/call?action=searchOpportunities&key=" + key + 
-                "&query=%7B%22location%22:%22"+query+"%22%7D",
-            method: "GET",
-            dataType: "JSONP",
-            data: {
-              action: "searchOrganizations"
-            }
-        }).done(function(response) {
-            console.log(response.resultsSize)
-            $("#volunteerMatchAPI").html(response.resultsSize)
-            // $("#test").append(test9)
-          });
-        });
