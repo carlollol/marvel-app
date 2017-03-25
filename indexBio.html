@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <div>
     <nav class="navbar navbar-default navbar-fixed-top">
         <!-- collapsing menu -->
         <div class="container-fluid">
@@ -26,12 +27,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <h1 id="name" class="navbar-brand"><img src="assets/media/logo.png" id="logoHeader" alt="logo"></h1>
+                <a class="navbar-brand"><img src="assets/images/logo_small.png" id="logoHeader" alt="logo"></a>
             </div>
             <!-- navbar-header -->
             <!-- collect nav links to toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="index.html" title="homepage">Home<span class="sr-only">(current)</span></a></li>
                     <li class="active"><a href="regHeroes.html" title="registered heros">Registered Heroes</a></li>
                     <li class="active"><a href="indexBio.html" title="about us">About Us</a></li>
@@ -41,24 +42,26 @@
         </div>
         <!-- close nav container -->
         </nav>
-        <div class="site_container">
-        <br><br><br><br><br>
-            <h1> S.W.O.R.D </h1>
+        <div class="container gmap swordBio">
+        <br><br><br>
+            <div class="bioBox">
+            <img src="assets/images/logo.png" id="mainLogo" alt="logo">
             
             <h2> Sentient World Observation and Response Department </h2>
-            <nav>
+            <div class="heroProfiles">
                 <ul class="topnav">
-                    <li><img src="assets/images/carloBio.jpg" height="100px" width="100px" class="bio_link" href="#Carlo">Carlo Anacta - Other-Worldly Relations Manager </li>
-                    <li><img src="assets/images/brandon.jpg" height="100px" width="100px" class="bio_link" href="#Brandon">Brandon Chang - Super-visor</li>                 
-                    <li><img src="assets/images/jackieBio.jpg" height="100px" width="100px" class="bio_link" href="#Jackie">Jackie Wellons - Head of HR (Hero Relations) </li>
+                    <li><img src="assets/images/carloBio.jpg" height="100px" width="100px" class="bio_link" href="#Carlo"><p><strong>Carlo Anacta</strong><br>Intergallatic Delivery Boy</p> </li>
+                    <li><img src="assets/images/brandonBio.jpg" height="100px" width="100px" class="bio_link" href="#Brandon"><p><strong>Brandon Chang</strong><br>Super-visor</p></li>                 
+                    <li><img src="assets/images/jackieBio.jpg" height="100px" width="100px" class="bio_link" href="#Jackie"><p><strong>Jackie Wellons</strong><br>Head of HR (Hero Relations)</p> </li>
                       
                     <!-- <p>I have a BFA from Penn State in Theatre Technology, and I'm currently enrolled  6 month Fullstack Web Develpoment program at UCLA.  I am looking for work as a Web Developer or Sofware Developer.  I love making games, and enjoy learning new computer languages to expand my skills. </p>-->
-                    <li><img src="assets/images/wyattBio.jpg" height="100px" width="100px" class="bio_link" href="#Wyatt">Wyatt Thomson - Scribe </li> 
+                    <li><img src="assets/images/wyattBio.jpg" height="100px" width="100px" class="bio_link" href="#Wyatt"><p><strong>Wyatt Thomson</strong><br>Scribe</p> </li> 
                       
                   <!--  <p>  I am a former collegiate athlete with a degree in Religious Studies from the University of California Santa Barbara.  Currently enrolled in the UCLA I hope to build on my current experience as a Technical Recruiter, opening up new doors and career possibilites! </p> -->
                      
                 </ul>
-            </nav>
+            </div>
+            </div>
             <div class="site_bio">
                 <h2> WHAT WE DO </h2>
                 <p>
@@ -72,6 +75,16 @@
                 </p>
             </div>
         </div>
+        </div>
+        <footer class="footer">
+        <div class="container">
+        <nav id="menu">
+            <button class="icons" id="findHero"><div id="fHero"></div></button>
+            <button class="icons" id="beHero"><div id="bHero"></button>
+            <button class="icons" id ="adopt"><div id="sKick"></div></button>
+        </nav>  
+        </div>
+    </footer>
     
 </body>
 
