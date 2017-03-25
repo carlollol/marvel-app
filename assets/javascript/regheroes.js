@@ -1,4 +1,14 @@
+var config = {
+    apiKey: "AIzaSyAXUwZuSaugpVDjGxX2_1z0GkYAZTd4JO0",
+    authDomain: "herobase-b5dcf.firebaseapp.com",
+    databaseURL: "https://herobase-b5dcf.firebaseio.com",
+    storageBucket: "herobase-b5dcf.appspot.com",
+    messagingSenderId: "580760766893"
+};
+     firebase.initializeApp(config);
+
 var database = firebase.database();
+// var heroes = [];
 var heroes = [{
     alias: "Iron Man",
     name: "Anthony Edward 'Tony' Stark",
@@ -105,8 +115,8 @@ $("#submit_hero").on("click", function(event) {
     $("#powers").val("");
     $("#footage").val("");
     $("#yourlocation").val("");
-
     return false;
+
 });
 
 database.ref().on("child_added", function(childSnapshot, prevChildKey) {
@@ -126,6 +136,8 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
     }
     heroes.push(heroNew);
 
+
     var start = $("<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><h4 data-toggle='collapse' data-parent='#accordion' href='#collapse" + heroes.length + "'>" + heroId + "</h4></h4></div><div id='collapse" + heroes.length + "' class='panel-collapse collapse'><div class='panel-body'><section><strong><h5>Name:</strong> " + heroName + "</h5><strong><h5>Powers: </strong>" + heroPowers + "</h5><h5><strong>Location: </strong><span id='locInfo" + heroes.length + "'>" + heroLocation + "</span></h5><video height='300px' muted loop controls='controls' preload='none'  class='bgvid'><source src='" + heroFootage + "' type='video/mp4'></video></section></div></div></div>");
     $("#accordion").append(start);
+
 });
