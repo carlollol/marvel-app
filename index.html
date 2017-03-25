@@ -5,6 +5,7 @@
 	<title>Herolution</title>
 	<!-- jquery link -->
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Exo+2:900" rel="stylesheet">
 	<!-- veiwport info for media query -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- boostrap jquery link -->
@@ -19,18 +20,19 @@
 	    <img src="assets/media/loadpage.jpg" alt="loadPage" id="loadPage">
 	</div> -->
 	<!-- main page, map, and menu -->
-	<nav class="navbar navbar-default navbar-fixed-top">
-	    <!-- collapsing menu -->
-	<div class="container-fluid">
-	    <div class="navbar-header">
-		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		    <span class="sr-only">Toggle navigation</span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand"><img src="assets/images/logo_small.png" id="logoHeader" alt="logo"></a>
-	    </div> <!-- navbar-header -->
+	<div>
+		<nav class="navbar navbar-default navbar-fixed-top">
+		    <!-- collapsing menu -->
+		<div class="container-fluid">
+		    <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			    <span class="sr-only">Toggle navigation</span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			    <span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand"><img src="assets/images/logo_small.png" id="logoHeader" alt="logo"></a>
+		    </div> <!-- navbar-header -->
 
 	    <!-- collect nav links to toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -43,7 +45,7 @@
 	    </div><!-- navbar-collapse -->	    
 	</div> <!-- close nav container -->
 	</nav>
-	<div class ="container">
+	<div class ="container fullWidth">
 	    
 	    <!-- find a hero modal -->
 	    <div class="modal fade" id="findHeroModal">
@@ -56,6 +58,7 @@
 			    <select id="heroList" name="simple">
 			    </select>
 			    <form class="name">
+			    <br>
 				<input type="submit" value="Search" id="findHeroSearch">
 			    </form>
 			</div>
@@ -82,48 +85,51 @@
 			</div>
 			<div class="modal-footer">
 			    <p>Find local places to you can be a hero and volunteer at, choose any option from the dropdown menu and add your address or zipcode to find local places.  Use your passion to contribute to your community, if you love animals volunteer at a local animal shelter.</p>
-
-			    <p>There are over <strong id = "volunteerMatchAPI">0</strong> opportunities available in the area you've searched!</p>
 			</div>
 		    </div>
 		</div>
 	    </div> <!-- close be hero modal -->
 
-	    <!-- Adopt a sidekick modal -->
-	    <div class="modal fade" id="adoptModal">
-		<div class="modal-dialog" role="document">
-		    <div class="modal-content">
-			<div class="modal-header">
-			    <h5 class="modal-title">Adopt a Sidekick</h5>
+		    <!-- Adopt a sidekick modal -->
+		    <div class="modal fade" id="adoptModal">
+			<div class="modal-dialog" role="document">
+			    <div class="modal-content">
+				<div class="modal-header">
+				    <h5 class="modal-title">Adopt a Sidekick</h5>
+				</div>
+				<div class="modal-body">
+				    <input type="text" class="search-query typeSearch" id ="animal" placeholder="Search...">
+				    <input id="adoptZip" type="text" placeholder="Address" name="zip" class="form=control areaSearch">
+				    <input type="submit" value="Search" id="adoptSearch">
+				</div>
+				<div class="modal-footer">
+				    <p>Adopt a sidekick from a local shelter, and give a loving animal a forever home.</p>
+				</div>
+			    </div>
 			</div>
-			<div class="modal-body">
-			    <input id="adoptZip" type="text" placeholder="Address" name="zip" class="form=control areaSearch">
-			    <input type="submit" value="Search" id="adoptSearch">
+		    </div> <!-- close adopt modal -->
+		    
+		<div class ="container gmap">
+			<div class="col-lg-12">
+			<div class="row">
+		    <!-- map -->
+		    <div id="googleMap"></div>
 			</div>
-			<div class="modal-footer">
-			    <p>Adopt a sidekick from a local shelter, and give a loving animal a forever home. Just put in your address or zipcode and find a local animal shelter</p>
-			</div>
+			
+		</div>
+		<footer class="footer">
+		    <div class="container fullWidth">
+			<nav id="menu">
+			    <button class="icons" id="findHero"><div id="fHero"></div></button>
+			    <button class="icons" id="beHero"><div id="bHero"></button>
+			    <button class="icons" id ="adopt"><div id="sKick"></div></button>
+			</nav>	
 		    </div>
-		</div>
-	    </div> <!-- close adopt modal -->
-	    
-	<div class ="container gmap">
-		<div class="col-lg-12">
-		<div class="row">
-	    <!-- map -->
-	    <div id="googleMap"></div>
-		</div>
-		</div>
-	</div> <!-- close main container -->
-	<footer class="footer">
-	    <div class="container">
-		<nav id="menu">
-		    <button class="icons" id="findHero"><div id="fHero"></div></button>
-		    <button class="icons" id="beHero"><div id="bHero"></div></button>
-		    <button class="icons" id ="adopt"><div id="sKick"></div></button>
-		</nav>	
-	    </div>
-	</footer>
+		</footer>
+	</div>
+	</div> 
+	<!-- close main container -->
+
 	<!-- firebase link -->
 	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
 
