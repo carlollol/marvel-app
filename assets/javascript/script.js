@@ -1,7 +1,8 @@
 $(document).ready(function() {
     //declare var
-    var map, mapProp, geocoder, infoWindow, search, locSearch, service, address, hero, volChoice;
+    var map, mapProp, geocoder, infoWindow, search, locSearch, service, address, hero, volChoice, marker;
     var volList = ["Volunteer", "Soup Kitchen", "Animal Shelter"];
+    var markers = [];
     initMap();
     addVolOpp();
 
@@ -34,10 +35,9 @@ $(document).ready(function() {
 	search = $("#volunteerList").val();
 	locSearch = $("#heroZip").val().trim();
 	codeAddress(geocoder, map);
-	var key = "b68b14ba88588086d84e52175df4e6b5"
+	var key = "b68b14ba88588086d84e52175df4e6b5";
         var query;
         query = $("#heroZip").val().trim();
-	console.log(query)
         $.ajax({
 	    url: "http://www.volunteermatch.org/api/call?action=searchOpportunities&key=" + key + 
                 "&query=%7B%22location%22:%22"+query+"%22%7D",
@@ -47,8 +47,8 @@ $(document).ready(function() {
 		action: "searchOrganizations"
 	    }
         }).done(function(response) {
-	    console.log(response.resultsSize)
-            $("#volunteerMatchAPI").html(response.resultsSize)
+	    console.log(response.resultsSize);
+            $("#volunteerMatchAPI").html(response.resultsSize);
 	    // $("#test").append(test9)
         });
 	setTimeout(function() {
@@ -64,7 +64,7 @@ $(document).ready(function() {
 	$("#adoptModal").modal("hide");
     });
 
-     // Initialize Firebase
+    // Initialize Firebase
     function initMap() {
 	mapProp= {
 	    center: new google.maps.LatLng(51.508742, -0.120850),
@@ -200,7 +200,7 @@ $(document).ready(function() {
 		    location: locationObj,
 		    radius: 500,
 		    query: search
-		};
+		}; 
 
 		service = new google.maps.places.PlacesService(map);
 		service.textSearch(request, callback);
@@ -213,29 +213,29 @@ $(document).ready(function() {
 			}
 		    }
 		}
-		
-function createMarker(place) {
-            var placeLoc = place.geometry.location;
-            var marker = new google.maps.Marker({
-            map: map,
-            position: place.geometry.location,
-            zoom: 15
-            });
-            
-            infoWindow = new google.maps.InfoWindow();
-            google.maps.event.addListener(marker, 'click', function() {
-            infoWindow.setContent(place.name);
-            infoWindow.open(map, this);
-            });
-        }
-        
-        } else {
-        console.log('Geocode was not successful for the following reason: ' + status);
-        }
-	    
-    });
-    };// close be hero seacrh function
+	    } else {
+		console.log('Geocode was not successful for the following reason: ' + status);
+	    }
 
+	    function createMarker(place) {
+		var placeLoc = place.geometry.location;
+		marker = new google.maps.Marker({
+		    map: map,
+		    position: place.geometry.location,
+		    zoom: 15
+		});
+		markers.push(marker);  
+		infoWindow = new google.maps.InfoWindow();
+		google.maps.event.addListener(marker, 'click', function() {
+		    infoWindow.setContent(place.name);
+		    infoWindow.open(map, this);
+		});
+		markers.push(marker);
+	    }
+	}); //close geocoder
+    }; // close code address
+    
+    
     // find a hero search function   
     function herocode(geocoder, resultsMap) {
 	geocoder = new google.maps.Geocoder();
@@ -246,12 +246,15 @@ function createMarker(place) {
 		    map: map,
 		    position: results[0].geometry.location
 		});
+		markers.push(marker);
 	    } else {
 		alert('Geocode was not successful for the following reason: ' + status);
 	    }
 	});
     }
 
+
+
     
-		  
+    
 }); //close ready function
