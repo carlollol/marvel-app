@@ -39,7 +39,7 @@ $(document).ready(function() {
         var query;
         query = $("#heroZip").val().trim();
         $.ajax({
-	    url: "http://www.volunteermatch.org/api/call?action=searchOpportunities&key=" + key + 
+	    url: "https://www.volunteermatch.org/api/call?action=searchOpportunities&key=" + key + 
                 "&query=%7B%22location%22:%22"+query+"%22%7D",
 	    method: "GET",
 	    dataType: "JSONP",
